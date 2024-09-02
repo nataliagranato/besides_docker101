@@ -1,10 +1,5 @@
 version: 2
 updates:
-- package-ecosystem: "pip" # Para Python
-  directory: "/" # Localização do requirements.txt
-  schedule:
-    interval: "daily"
-
 - package-ecosystem: "docker" # Para Dockerfile
   directory: "/" # Localização do Dockerfile
   schedule:
