@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: locust
+  name: locust
+  namespace: locust
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: locust
+  template:
+    metadata:
+      labels:
+        app: locust
+    spec:
+      containers:
+      - image: locustio/locust:2.31.3
+        name: locust
+        env:
+        - name: LOCUST_LOCUSTFILE
+          value: "/usr/src/app/scripts/locustfile.py"
+        resources:
+          limits:
+            cpu: '2'
+            memory: 4Gi
+          requests:
+            cpu: '1'
+            memory: 2Gi
+        securityContext:
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 1000
+        ports:
+        - containerPort: 8089
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: locust-scripts
+          mountPath: /usr/src/app/scripts
+      volumes:
+      - name: locust-scripts
+        configMap:
+          name: locust-scripts
+          optional: true

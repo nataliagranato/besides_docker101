@@ -1,0 +1,5 @@
+Method,Name,Error,Occurrences
+GET,/api/senhas/api/senhas,"gaierror(-3, 'Temporary failure in name resolution')",1
+GET,/api/senhas/api/senhas,"SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)'))",60103
+POST,/api/senhas/api/gerar-senha,"SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1006)'))",30033
+POST,/api/senhas/api/gerar-senha,"gaierror(-3, 'Temporary failure in name resolution')",1

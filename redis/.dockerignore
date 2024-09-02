@@ -1,0 +1,15 @@
+.github/
+chainguard/
+charts/
+kind/
+kyverno/
+locust/
+manifests/
+scripts/
+src/
+screenshots/
+LICENSE
+OWNERS
+.coderabbit.yaml
+README.md
+docker-compose.yml

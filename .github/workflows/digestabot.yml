@@ -1,0 +1,28 @@
+name: Image digest update
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  image-update:
+    name: Image digest update
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write # Permissão para escrever no repositório
+      pull-requests: write # Permissão para abrir PRs
+      id-token: write # Necessário para solicitar o JWT (JSON Web Token)
+
+    steps:
+    - uses: actions/checkout@v4
+    - uses: chainguard-dev/digestabot@v1.2.0
+      with:
+        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        signoff: true 
+        author: "Natália Granato <nataliagranato@ufmg.br>" 
+        committer: "Natália Granato <nataliagranato@ufmg.br>" 
+        labels-for-pr: automated pr, kind/cleanup, release-note-none 
+        branch-for-pr: update-digests 
+        title-for-pr: Update images digests

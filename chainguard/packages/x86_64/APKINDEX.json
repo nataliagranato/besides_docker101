@@ -1,0 +1,56 @@
+{
+  "Signature": null,
+  "Description": "",
+  "Packages": [
+    {
+      "Name": "giropops-senhas",
+      "Version": "0.1.0-r0",
+      "Arch": "x86_64",
+      "Description": "Um gerador de senhas.",
+      "License": "Apache-2.0",
+      "Origin": "giropops-senhas",
+      "Maintainer": "",
+      "URL": "",
+      "Checksum": "t2GV3n+Sk2R+MgZPTu0uD2AaWEs=",
+      "Dependencies": [
+        "python3",
+        "so:libc.musl-x86_64.so.1"
+      ],
+      "Provides": null,
+      "InstallIf": null,
+      "Size": 6163069,
+      "InstalledSize": 17212997,
+      "ProviderPriority": 0,
+      "BuildTime": "1970-01-01T00:00:00Z",
+      "BuildDate": 0,
+      "RepoCommit": "",
+      "Replaces": null,
+      "DataHash": ""
+    },
+    {
+      "Name": "senhas",
+      "Version": "1.0.0-r0",
+      "Arch": "x86_64",
+      "Description": "Um gerador de senhas.",
+      "License": "Apache-2.0",
+      "Origin": "senhas",
+      "Maintainer": "",
+      "URL": "",
+      "Checksum": "TFIwM77H/NrvnJ4eTrAAHtZWRYk=",
+      "Dependencies": [
+        "python3",
+        "so:libc.musl-x86_64.so.1"
+      ],
+      "Provides": null,
+      "InstallIf": null,
+      "Size": 6161572,
+      "InstalledSize": 17207975,
+      "ProviderPriority": 0,
+      "BuildTime": "1970-01-01T00:00:00Z",
+      "BuildDate": 0,
+      "RepoCommit": "",
+      "Replaces": null,
+      "DataHash": "7aad597f0fd83533abf80aca9fb836380577f347e957d61c507db1480e341fd3"
+    }
+  ]
+}

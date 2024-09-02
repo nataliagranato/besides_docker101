@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: giropops-senhas
+  name: giropops-deployment
+  namespace: giropops-senhas
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: giropops-senhas
+  template:
+    metadata:
+      labels:
+        app: giropops-senhas
+    spec:
+      containers:
+      - image: nataliagranato/linuxtips-giropops-senhas:57720-20240824212022
+        name: giropops-senhas
+        ports:
+        - containerPort: 5000
+        resources:
+          limits:
+            cpu: '0.1'
+            memory: 256Mi
+          requests:
+            cpu: '0.1'
+            memory: 128Mi
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: REDIS_HOST
+          value: redis-service
+        - name: REDIS_PORT
+          value: "6379"
+        securityContext:
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          # runAsUser: 1000
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 5
+          failureThreshold: 3
+          successThreshold: 1
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 5
+          failureThreshold: 3
+          successThreshold: 1
+        volumes:
+        - name: redis
+          persistentVolumeClaim:
+            claimName: giropops-senhas-pv
+            metadata:
+              namespace: giropops-senhas
+            spec:
+              storageClassName: 'oci-bv'
+              volumeName: 'senhas'

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    app: giropops-senhas
+  name: giropops-senhas-pvc
+  namespace: giropops-senhas
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5G
+  storageClassName: oci-bv
