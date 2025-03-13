@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: chainguard-dev/digestabot@v1.2.1
+    - uses: chainguard-dev/digestabot@v1.2.2
       with:
         token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         signoff: true 
