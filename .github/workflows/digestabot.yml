@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+
 jobs:
   image-update:
     name: Image digest update
@@ -16,8 +19,13 @@ jobs:
       id-token: write # Necessário para solicitar o JWT (JSON Web Token)
 
     steps:
-    - uses: actions/checkout@v4
-    - uses: chainguard-dev/digestabot@v1.2.2
+    - name: Harden the runner (Audit all outbound calls)
+      uses: step-security/harden-runner@c6295a65d1254861815972266d5933fd6e532bdf # v2.11.1
+      with:
+        egress-policy: audit
+
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+    - uses: chainguard-dev/digestabot@43222237fd8a07dc41a06ca13e931c95ce2cedac # v1.2.2
       with:
         token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         signoff: true 

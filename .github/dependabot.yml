@@ -9,3 +9,33 @@ updates:
   directory: "/" # Localização do workflow YAML
   schedule:
     interval: "daily"
+
+- package-ecosystem: docker
+  directory: /alpine
+  schedule:
+    interval: daily
+
+- package-ecosystem: docker
+  directory: /distroless
+  schedule:
+    interval: daily
+
+- package-ecosystem: pip
+  directory: /distroless
+  schedule:
+    interval: daily
+
+- package-ecosystem: docker
+  directory: /error_nonroot
+  schedule:
+    interval: daily
+
+- package-ecosystem: docker
+  directory: /multi-stage
+  schedule:
+    interval: daily
+
+- package-ecosystem: docker
+  directory: /traditional
+  schedule:
+    interval: daily
