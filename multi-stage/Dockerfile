@@ -17,7 +17,7 @@ COPY index.html /var/www/html/
 # Etapa 2: Imagem final
 FROM ubuntu:24.04@sha256:c4570d2f4665d5d118ae29fb494dee4f8db8fcfaee0e37a2e19b827f399070d3
 # A instrução FROM especifica a imagem base para a imagem final.
-# Neste caso, utiliza a imagem do Ubuntu 22.04 como base.
+# Neste caso, utiliza a imagem do Ubuntu 24.04 como base.
 
 # Copia o Nginx instalado e o arquivo index.html da etapa de construção para a imagem final
 COPY --from=builder /etc/nginx /etc/nginx
