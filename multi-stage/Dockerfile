@@ -2,7 +2,7 @@
 # Etapa 1: Construção
 FROM ubuntu:24.04@sha256:c4570d2f4665d5d118ae29fb494dee4f8db8fcfaee0e37a2e19b827f399070d3 AS builder
 # A instrução FROM especifica a imagem base para a etapa de construção.
-# Neste caso, utiliza a imagem do Ubuntu 22.04 como base.
+# Neste caso, utiliza a imagem do Ubuntu 24.04 como base.
 
 # Instala o servidor web Nginx e outras dependências necessárias
 RUN apt-get update && apt-get install -y nginx && rm -rf /var/lib/apt/lists/*
