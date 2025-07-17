@@ -1,8 +1,8 @@
  
 # Etapa 1: Construção
-FROM ubuntu:24.04@sha256:440dcf6a5640b2ae5c77724e68787a906afb8ddee98bf86db94eea8528c2c076 AS builder
+FROM ubuntu:24.04@sha256:c4570d2f4665d5d118ae29fb494dee4f8db8fcfaee0e37a2e19b827f399070d3 AS builder
 # A instrução FROM especifica a imagem base para a etapa de construção.
-# Neste caso, utiliza a imagem do Ubuntu 22.04 como base.
+# Neste caso, utiliza a imagem do Ubuntu 24.04 como base.
 
 # Instala o servidor web Nginx e outras dependências necessárias
 RUN apt-get update && apt-get install -y nginx && rm -rf /var/lib/apt/lists/*
@@ -15,9 +15,9 @@ RUN apt-get update && apt-get install -y nginx && rm -rf /var/lib/apt/lists/*
 COPY index.html /var/www/html/
 
 # Etapa 2: Imagem final
-FROM ubuntu:24.04@sha256:440dcf6a5640b2ae5c77724e68787a906afb8ddee98bf86db94eea8528c2c076
+FROM ubuntu:24.04@sha256:c4570d2f4665d5d118ae29fb494dee4f8db8fcfaee0e37a2e19b827f399070d3
 # A instrução FROM especifica a imagem base para a imagem final.
-# Neste caso, utiliza a imagem do Ubuntu 22.04 como base.
+# Neste caso, utiliza a imagem do Ubuntu 24.04 como base.
 
 # Copia o Nginx instalado e o arquivo index.html da etapa de construção para a imagem final
 COPY --from=builder /etc/nginx /etc/nginx
