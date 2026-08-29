@@ -30,7 +30,7 @@ jobs:
       - name: Update image digests
         uses: chainguard-dev/digestabot@33d0b78e580aa0c83fe188eb3dfad6611b662479 # v1.3.2
         with:
-          token: ${{ github.token }}
+          token: ${{ secrets.USER_TOKEN || github.token }}
           signoff: true
           author: "Natália Granato <nataliagranato@ufmg.br>"
           committer: "Natália Granato <nataliagranato@ufmg.br>"
